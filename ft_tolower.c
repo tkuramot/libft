@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:42:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 19:47:07 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/16 21:19:52 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/16 21:26:52 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void *ft_memcpy(void *dst, const void *src, size_t n)
+int ft_tolower(int c)
 {
-    unsigned char *d;
-    const unsigned char *s;
-
-    d = (unsigned char *)dst;
-    s = (const unsigned char *)src;
-    while(n-- > 0)
-        *d++ = *s++;
-    return (dst);
+    if('A' <= c && c <= 'Z')
+        return (c - 'A' + 'a');
+    return c;
 }

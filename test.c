@@ -1,16 +1,13 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main(void)
 {
-    char str[12];
-    char *s = "abcdefg";
-    ft_memmove(str, s, 7);
-    printf("%s\n", str);
-
-    char str1[100] = "123456789";
-    ft_memmove(str1 + 5, str1, 11);
-    printf("%s\n", str1);
+    char *s1 = "abcd";
+    char *s2 = "abzz";
+	printf("%d\n", ft_strncmp(s1, s2, 4));
+	printf("%d\n", strncmp(s1, s2, 4));
     return 0;
 }

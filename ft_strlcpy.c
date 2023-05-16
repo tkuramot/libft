@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:42:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 19:47:07 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/16 19:27:52 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/16 19:49:29 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include <stdio.h>
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    unsigned char *d;
-    const unsigned char *s;
+	size_t	index;
 
-    d = (unsigned char *)dst;
-    s = (const unsigned char *)src;
-    while(n-- > 0)
-        *d++ = *s++;
-    return (dst);
+	index = 0;
+	while (index + 1 < dstsize && *src != '\0')
+	{
+		*dst++ = *src++;
+		index++;
+	}
+	*dst = '\0';
+	while (*src++ != '\0')
+		index++;
+	return (index);
 }

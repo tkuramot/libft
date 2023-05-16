@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:01:45 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 19:06:31 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:46:47 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ void *ft_memmove(void *dst, const void *src, size_t len)
     {
         d += len;
         s += len;
-        while(len)
+        while(len-- > 0)
         {
             *--d = *--s;
-            len--;
         }
     }
     return dst;

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:42:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 19:47:07 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/16 21:38:19 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/16 21:39:22 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+char *ft_strrchr(const char *s, int c)
 {
-    unsigned char *d;
-    const unsigned char *s;
+    char *ret;
 
-    d = (unsigned char *)dst;
-    s = (const unsigned char *)src;
-    while(n-- > 0)
-        *d++ = *s++;
-    return (dst);
+    ret = NULL;
+    while(*s++ != '\0')
+    {
+        if(*s == c)
+            ret = s;
+    }
+    return ret;
 }

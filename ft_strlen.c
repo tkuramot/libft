@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:02:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 17:19:35 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:48:26 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ size_t ft_strlen(const char *s)
     size_t len;
     len = 0;
     while(*s++ != '\0')
-    {
         len++;
-        s++;
-    }
     return (len);
 }
