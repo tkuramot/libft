@@ -6,11 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:26:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 16:27:09 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:02:23 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int ft_isprint(int c)
 {
-    return ;
+    return (32 <= c && c <= 127);
 }

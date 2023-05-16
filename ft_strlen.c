@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 16:22:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 17:06:05 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/16 17:02:56 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/16 17:19:35 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-int ft_isalnum(int c)
+size_t ft_strlen(const char *s)
 {
-    return (ft_isalpha(c) || ft_isdigit(c));
+    size_t len;
+    len = 0;
+    while(*s++ != '\0')
+    {
+        len++;
+        s++;
+    }
+    return (len);
 }
