@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kura <kura@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:24:39 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 16:25:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:05:33 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int isascii(int c)
+int ft_isascii(int c)
 {
     return (0 <= c && c <= 127);
 }

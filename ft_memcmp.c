@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kura <kura@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:46:09 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 21:50:39 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:29:53 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
         b2++;
         n--;
     }
+    if(n == 0)
+        return 0;
     return (unsigned char)*b1 - (unsigned char)*b2;
 }

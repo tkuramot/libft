@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kura <kura@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:27:52 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 19:49:29 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:32:20 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdio.h>
 
 size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
