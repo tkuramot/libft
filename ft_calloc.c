@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 19:27:52 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/18 00:24:57 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/17 23:29:35 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/18 00:16:34 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include <limits.h>
+#include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void *ft_calloc(size_t count, size_t size)
 {
-	size_t	index;
+    void *b;
 
-	index = 0;
-	while (index + 1 < dstsize && *src != '\0')
-	{
-		*dst++ = *src++;
-		index++;
-	}
-    if(dstsize > 0)
-        *dst = '\0';
-	while (*src++ != '\0')
-		index++;
-	return (index);
+    if(count != 0 && size != 0 && SIZE_MAX / count / size <= 0)
+        return NULL;
+    b = malloc(count * size);
+    if(b == NULL)
+        return b;
+    ft_bzero(b, count * size);
+    return b;
 }

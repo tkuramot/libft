@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 19:27:52 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/18 00:24:57 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/17 22:54:27 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/18 01:58:53 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <limits.h>
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	ft_atoi(const char *str)
 {
-	size_t	index;
+	int	sign;
+	long long	nb;
 
-	index = 0;
-	while (index + 1 < dstsize && *src != '\0')
+	sign = 1;
+	nb = 0;
+	while (*str == ' ' || ('\t' <= *str && *str <= '\r'))
 	{
-		*dst++ = *src++;
-		index++;
+		str++;
 	}
-    if(dstsize > 0)
-        *dst = '\0';
-	while (*src++ != '\0')
-		index++;
-	return (index);
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while ('0' <= *str && *str <= '9')
+	{
+		nb = (nb * 10) + (*str - '0');
+		str++;
+	}
+	return (int)(nb * sign);
 }

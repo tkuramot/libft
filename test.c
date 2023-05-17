@@ -3,13 +3,11 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int main(void)
 {
-	char *s = calloc(30, sizeof(char));
-	memcpy(s, "libft-test-tokyo", 17);
-	memcpy(s + 20, "acdfg", 5);
-	//printf("%s\n", ft_memchr(s, 'z', 30));
-    printf("%s\n", memchr(s, 'z', 30));
+    printf("%p\n", calloc(0, 0));
+    printf("%p\n", ft_calloc(0, 0));
     return 0;
 }
