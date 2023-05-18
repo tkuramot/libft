@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:29:35 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/18 00:16:34 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:45:02 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void *ft_calloc(size_t count, size_t size)
 {
     void *b;
 
-    if(count != 0 && size != 0 && SIZE_MAX / count / size <= 0)
+    if(size != 0 && count > SIZE_MAX / size)
         return NULL;
     b = malloc(count * size);
     if(b == NULL)
