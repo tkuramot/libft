@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 00:12:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/18 16:37:14 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/18 14:54:05 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/18 16:42:15 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*ft_strcpy(char *dest, char *src)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	index;
+    size_t s_len;
+    char *ret;
+    char *tmp;
 
-	index = 0;
-	while (src[index] != '\0')
-	{
-		dest[index] = src[index];
-		index++;
-	}
-	dest[index] = '\0';
-	return (dest);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	char			*temp;
-	unsigned int	len;
-
-	len = ft_strlen(s1);
-	temp = (char *)malloc(sizeof(char) * (len + 1));
-	if (temp == NULL)
-		return (NULL);
-	ft_strcpy(temp, (char *)s1);
-	return (temp);
+    s_len = ft_strlen(s);
+    if(s_len < start)
+        len = 0;
+    ret = (char *)malloc(sizeof (char) * (len + 1));
+    if(ret == NULL)
+        return NULL;
+    tmp = ret;
+    s += start;
+    while(len > 0)
+    {
+        *tmp++ = *s++;
+        len--;
+    }
+    *tmp = '\0';
+    return ret;
 }

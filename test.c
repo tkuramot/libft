@@ -7,7 +7,6 @@
 
 int main(void)
 {
-    printf("%p\n", calloc(0, 0));
-    printf("%p\n", ft_calloc(0, 0));
+    printf("%s\n", ft_itoa(-123));
     return 0;
 }
