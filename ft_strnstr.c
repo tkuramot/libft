@@ -6,13 +6,13 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:23:28 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/17 23:58:38 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:27:01 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int	compare(const char *s1, const char *s2, size_t len)
+static int	compare(const char *s1, const char *s2, size_t len)
 {
 	while (*s1 != '\0' && *s2 != '\0' && len > 0)
 	{
