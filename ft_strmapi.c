@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:51:45 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:44:12 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 19:38:23 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	tmp = ret;
 	while (idx < s_len)
 		*tmp++ = f(idx++, *s++);
+	*tmp = '\0';
 	return (ret);
 }

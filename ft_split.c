@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:41:39 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:13:41 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static char	*extract_substr(char const *s, char c)
 	tmp = ret;
 	while (*s != '\0' && *s != c)
 		*tmp++ = *s++;
+	*tmp = '\0';
 	return (ret);
 }
 
@@ -65,12 +66,14 @@ char	**ft_split(char const *s, char c)
 {
 	char	**ret;
 	char	**tmp;
+	size_t	substr_cnt;
 
-	ret = (char **)malloc(sizeof(char *) * (get_substr_count(s, c) + 1));
+	substr_cnt = get_substr_count(s, c);
+	ret = (char **)malloc(sizeof(char *) * (substr_cnt + 1));
 	if (ret == NULL)
 		return (NULL);
 	tmp = ret;
-	while (*s != '\0')
+	while (substr_cnt != 0 && *s != '\0')
 	{
 		while (*s != '\0' && *s == c)
 			s++;

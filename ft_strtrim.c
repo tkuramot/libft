@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:53:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:45:14 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 17:05:34 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	tmp = ret;
 	while (total_len-- > 0)
 		*tmp++ = *s1++;
+	*tmp = '\0';
 	return (ret);
 }
