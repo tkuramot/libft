@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:44:26 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:42:33 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:37:32 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	dstsize;
 	char	*ret;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	dstsize = s1_len + s2_len + 1;

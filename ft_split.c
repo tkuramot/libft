@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 18:13:41 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:39:09 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	**ft_split(char const *s, char c)
 	char	**tmp;
 	size_t	substr_cnt;
 
+	if (s == NULL)
+		return (NULL);
 	substr_cnt = get_substr_count(s, c);
 	ret = (char **)malloc(sizeof(char *) * (substr_cnt + 1));
 	if (ret == NULL)

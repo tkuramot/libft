@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:12:10 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:41:21 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:45:02 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (s == NULL)
+		return ;
 	write(fd, s, ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:28:39 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 20:50:37 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:53:17 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*node;
 	void	*tmp;
 
+	if (lst == NULL || f == NULL)
+		return (NULL);
 	node = lst;
 	while (node != NULL)
 	{

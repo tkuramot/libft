@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:53:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 17:05:34 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:38:27 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*tmp;
 	size_t	total_len;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	while (*s1 != '\0' && is_in_charset(*s1, set))
 		s1++;
 	total_len = ft_strlen(s1);
