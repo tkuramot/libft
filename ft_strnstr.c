@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:23:28 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/18 09:27:01 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:44:41 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static int	compare(const char *s1, const char *s2, size_t len)
 		}
 		s1++;
 		s2++;
-        len--;
+		len--;
 	}
 	return (*s2 == '\0');
 }
 
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	if (*needle == '\0')
 		return ((char *)haystack);
@@ -36,7 +36,7 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 		if ((*haystack == *needle) && compare(haystack, needle, len))
 			return ((char *)haystack);
 		haystack++;
-        len--;
+		len--;
 	}
 	return (NULL);
 }

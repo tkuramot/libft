@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:59 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/18 21:47:56 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:18:53 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static size_t	get_number_of_digits(int n)
 
 char	*ft_itoa(int n)
 {
-	char *ret;
-	char *tmp;
-	size_t len;
-	int is_negative;
+	char	*ret;
+	char	*tmp;
+	size_t	len;
+	int		is_negative;
 
 	is_negative = (n < 0);
 	len = get_number_of_digits(n) + is_negative;

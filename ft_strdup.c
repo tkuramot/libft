@@ -6,12 +6,12 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 00:12:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/18 16:37:14 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:41:55 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
 static char	*ft_strcpy(char *dest, char *src)
 {

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:19:52 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 21:26:52 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:45:31 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if('A' <= c && c <= 'Z')
-        return (c - 'A' + 'a');
-    return c;
+	if ('A' <= c && c <= 'Z')
+		return (c - 'A' + 'a');
+	return (c);
 }

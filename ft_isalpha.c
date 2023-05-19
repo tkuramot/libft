@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/16 17:52:14 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:18:04 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
+	return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
 }
