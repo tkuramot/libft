@@ -6,12 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 09:59:32 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 21:51:56 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:41:50 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

@@ -6,31 +6,30 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 00:12:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:41:55 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:50:58 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static char	*ft_strcpy(char *dest, char *src)
 {
-	int	index;
+	size_t	index;
 
 	index = 0;
-	while (src[index] != '\0')
+	while (*src != '\0')
 	{
-		dest[index] = src[index];
+		*dest++ = *src++;
 		index++;
 	}
-	dest[index] = '\0';
+	*dest = '\0';
 	return (dest);
 }
 
 char	*ft_strdup(const char *s1)
 {
 	char			*temp;
-	unsigned int	len;
+	size_t			len;
 
 	len = ft_strlen(s1);
 	temp = (char *)malloc(sizeof(char) * (len + 1));

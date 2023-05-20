@@ -6,13 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:29:35 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:17:43 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:40:48 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdlib.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {

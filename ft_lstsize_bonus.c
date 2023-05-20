@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 01:12:13 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 21:50:02 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:46:56 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	sz;
+	size_t	sz;
 
 	sz = 0;
 	if (lst == NULL)

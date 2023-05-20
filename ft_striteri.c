@@ -6,15 +6,15 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:05:44 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 21:42:47 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:49:30 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int	idx;
+	size_t	idx;
 
 	if (s == NULL || f == NULL)
 		return ;

@@ -6,12 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 21:39:09 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:43:45 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	get_substr_count(char const *s, char c)
 {

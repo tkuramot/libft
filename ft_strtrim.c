@@ -6,12 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:53:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 21:38:27 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:45:06 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static int	is_in_charset(char c, char const *set)
 {

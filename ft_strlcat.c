@@ -6,12 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:53:36 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 12:27:40 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:44:17 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
 static size_t	ft_strnlen(const char *s, size_t max_len)
 {

@@ -6,16 +6,15 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:51:45 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 21:40:44 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:49:55 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	idx;
+	size_t			idx;
 	size_t			s_len;
 	char			*ret;
 	char			*tmp;

@@ -6,11 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:54:27 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:15:35 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:40:00 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
+#include "libft.h"
 
 static int	handle_overflow(long *nb, int digit, int sign)
 {

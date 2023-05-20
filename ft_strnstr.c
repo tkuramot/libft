@@ -6,11 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:23:28 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 12:50:06 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:44:59 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 static int	compare(const char *s1, const char *s2, size_t len)
 {

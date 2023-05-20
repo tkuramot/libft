@@ -6,16 +6,15 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:59 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:18:53 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:46:29 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	get_number_of_digits(int n)
 {
-	int	cnt;
+	size_t	cnt;
 
 	cnt = 0;
 	if (n == 0)

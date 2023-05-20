@@ -6,12 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:01:45 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 12:35:46 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:42:41 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

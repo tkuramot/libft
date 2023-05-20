@@ -6,14 +6,16 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:45:43 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:43:11 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {

@@ -6,12 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:38:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 12:37:01 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:45:03 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
