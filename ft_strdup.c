@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 00:12:29 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:50:58 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 19:04:57 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,10 @@ char	*ft_strdup(const char *s1)
 	ft_strcpy(temp, (char *)s1);
 	return (temp);
 }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	strdup(NULL);
+// }
