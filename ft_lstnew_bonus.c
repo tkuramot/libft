@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 00:55:03 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:42:02 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 05:34:09 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,11 @@ t_list	*ft_lstnew(void *content)
 	node->next = NULL;
 	return (node);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_lstnew("aaaa")->content);
+// 	printf("%p\n", ft_lstnew("aaaa")->next);
+// }

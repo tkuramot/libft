@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:05:44 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:49:30 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:50:48 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,19 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	while (*s != '\0')
 		f(idx++, s++);
 }
+
+// #include <string.h>
+// #include <stdio.h>
+
+// void f(unsigned int i, char *s)
+// {
+// 	(void)i;
+// 	*s = ft_toupper(*s);
+// }
+
+// int	main(void)
+// {
+// 	char s[] = "aaaaa";
+// 	ft_striteri(s, f);
+// 	printf("%s\n", s);
+// }

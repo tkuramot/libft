@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 09:53:43 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:41:53 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 05:14:42 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	del(lst->content);
 	free(lst);
 }
+
+// int	main(void)
+// {
+// 	t_list *node = ft_lstnew(ft_strdup("aa"));
+// 	ft_lstdelone(node, free);
+// }

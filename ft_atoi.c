@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:54:27 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:40:00 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:04:28 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,21 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(nb * sign));
 }
+
+// #include <string.h>
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%d\n", ft_atoi("   +1234"));
+// 	printf("%d\n", ft_atoi("   -12 34"));
+// 	printf("%d\n", ft_atoi("   + 1234"));
+// 	printf("%d\n", ft_atoi("   +2147483647"));
+// 	printf("%d\n", ft_atoi("   -2147483647"));
+
+// 	printf("%d\n", atoi("   +1234"));
+// 	printf("%d\n", atoi("   -12 34"));
+// 	printf("%d\n", atoi("   + 1234"));
+// 	printf("%d\n", atoi("   +2147483647"));
+// 	printf("%d\n", atoi("   -2147483648"));
+// }

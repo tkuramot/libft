@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:44:26 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:44:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:51:58 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(ret, s2, sizeof(char) * dstsize);
 	return (ret);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_strjoin("aaaaaaaaaaaa", "bbbbbbbbbb"));
+// }

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 09:59:32 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:41:50 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 05:12:34 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	t_list *lst = ft_lstnew(ft_strdup("aa"));
+// 	ft_lstadd_back(&lst, ft_lstnew(ft_strdup("bb")));
+// 	ft_lstclear(&lst, free);
+// }

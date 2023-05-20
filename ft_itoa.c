@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:59 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:46:29 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:37:01 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,14 @@ char	*ft_itoa(int n)
 		*(tmp + 1) = '-';
 	return (ret);
 }
+
+// #include <string.h>
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_itoa(2147483647));
+// 	printf("%s\n", ft_itoa(-2147483648));
+// 	printf("%s\n", ft_itoa(-2));
+// 	printf("%s\n", ft_itoa(0));
+// }

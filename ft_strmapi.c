@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:51:45 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:49:55 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:55:07 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,22 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	*tmp = '\0';
 	return (ret);
 }
+
+// #include <stdio.h>
+
+// char f(unsigned int i, char c)
+// {
+// 	(void)i;
+// 	return c + 1;
+// }
+
+// int	main(void)
+// {
+// 	char *s = "123456";
+// 	printf("%s\n", s);
+// 	printf("%p\n", s);
+
+// 	s = ft_strmapi(s, f);
+// 	printf("%s\n", s);
+// 	printf("%p\n", s);
+// }

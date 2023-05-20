@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:54:05 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:45:08 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:57:59 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	*tmp = '\0';
 	return (ret);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	char *s = "1234567890";
+// 	printf("%s\n", ft_substr(s, 2, 5));
+// }

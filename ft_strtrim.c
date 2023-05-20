@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:53:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:45:06 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:56:48 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	*tmp = '\0';
 	return (ret);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	char s[] = "   a a a 3127890 a aaa  ";
+// 	printf("%s\n", ft_strtrim(s, " a"));
+// }
