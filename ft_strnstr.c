@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 22:23:28 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:44:41 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:50:06 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,24 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	char haystack[10] = "123456";
+// 	char needle[10] = "3";
+// 	// ft_strnstr(NULL, NULL, 0);
+// 	// ft_strnstr(NULL, NULL, 1);
+// 	// ft_strnstr(haystack, NULL, 0);
+// 	// ft_strnstr(haystack, NULL, 0);
+// 	ft_strnstr(NULL, needle, 0);
+// 	// ft_strnstr(NULL, needle, 1);
+
+// 	// strnstr(NULL, NULL, 0);
+// 	// strnstr(NULL, NULL, 1);
+// 	// strnstr(haystack, NULL, 0);
+// 	// strnstr(haystack, NULL, 0);
+// 	strnstr(NULL, needle, 0);
+// 	// strnstr(NULL, needle, 1);
+// }

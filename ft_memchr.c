@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:43:24 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:49:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:43:41 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*b;
 
 	b = (unsigned char *)s;
-	if (b == NULL)
-		return (NULL);
 	while (n > 0)
 	{
 		if (*b == (unsigned char)c)
@@ -28,3 +26,14 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	// ft_memchr(NULL, 'a', 0);
+// 	ft_memchr(NULL, 'a', 1);
+
+// 	// memchr(NULL, 'a', 0);
+// 	// memchr(NULL, 'a', 1);
+// }

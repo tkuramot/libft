@@ -6,36 +6,62 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:53:36 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:43:01 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:27:40 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
+static size_t	ft_strnlen(const char *s, size_t max_len)
+{
+	size_t	len;
+
+	len = 0;
+	while (max_len > 0 && *s++ != '\0')
+	{
+		len++;
+		max_len--;
+	}
+	return (len);
+}
+
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	index;
-	size_t	max_copy;
-	size_t	dest_str_len;
-	size_t	src_str_len;
+	size_t	src_len;
+	size_t	dst_len;
 
-	src_str_len = ft_strlen(src);
-	if (dst == NULL)
-		return (src_str_len);
-	dest_str_len = ft_strlen(dst);
-	if (dstsize <= dest_str_len)
-		return (dstsize + src_str_len);
-	max_copy = dstsize - dest_str_len - 1;
-	index = 0;
-	dst += dest_str_len;
-	while (index < max_copy)
+	src_len = ft_strlen(src);
+	dst_len = ft_strnlen(dst, dstsize);
+	if (dst_len == dstsize)
+		return (src_len + dstsize);
+	if (src_len < dstsize - dst_len)
+		ft_memcpy(dst + dst_len, src, src_len + 1);
+	else
 	{
-		if (*src == '\0')
-			break ;
-		*dst++ = *src++;
-		index++;
+		ft_memcpy(dst + dst_len, src, dstsize - dst_len - 1);
+		dst[dst_len - dst_len - 1] = '\0';
 	}
-	*dst = '\0';
-	return (src_str_len + dest_str_len);
+	return (dst_len + src_len);
 }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	char dst[10] = "123";
+// 	char src[10] = "45";
+// 	// ft_strlcat(NULL, NULL, 0);
+// 	// ft_strlcat(NULL, NULL, 1);
+// 	// ft_strlcat(dst, NULL, sizeof dst);
+// 	// ft_strlcat(dst, NULL, 0);
+// 	// ft_strlcat(NULL, src, sizeof dst);
+// 	ft_strlcat(NULL, src, 0);
+
+// 	// strlcat(NULL, NULL, 0);
+// 	// strlcat(NULL, NULL, 1);
+// 	// strlcat(dst, NULL, sizeof dst);
+// 	// strlcat(dst, NULL, 0);
+// 	// strlcat(NULL, src, sizeof dst);
+// 	strlcat(NULL, src, 0);
+// }

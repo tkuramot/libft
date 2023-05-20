@@ -28,10 +28,10 @@ bonus:
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(B_SRCS:.c=.o)
 
 fclean: clean
-	$(RM) $(NAME) $(B_SRCS:.c=.o)
+	$(RM) $(NAME)
 
 re: fclean all
 

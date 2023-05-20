@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:38:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:44:59 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:37:01 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,12 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (found);
 }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	// ft_strrchr(NULL, 'a');
+// 	strrchr(NULL, 'a');
+// 	return 0;
+// }

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:06:40 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:40:48 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 11:33:53 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,14 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	// ft_memset(NULL, 0, 2);
+// 	ft_memset(NULL, 0, 0);
+
+// 	// memset(NULL, 0, 2);
+// 	memset(NULL, 0, 0);
+// }

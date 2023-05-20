@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:27:52 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:43:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 11:45:05 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,24 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		index++;
 	return (index);
 }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	char dst[10] = "1234";
+// 	char src[10];
+// 	// ft_strlcpy(NULL, NULL, 0);
+// 	// ft_strlcpy(NULL, NULL, 1);
+// 	// ft_strlcpy(dst, NULL, sizeof dst);
+// 	// ft_strlcpy(dst, NULL, 0);
+// 	// ft_strlcpy(NULL, src, sizeof dst);
+// 	ft_strlcpy(NULL, src, 0);
+
+// 	// strlcpy(NULL, NULL, 0);
+// 	// strlcpy(NULL, NULL, 1);
+// 	// strlcpy(dst, NULL, sizeof dst);
+// 	// strlcpy(dst, NULL, 0);
+// 	// strlcpy(NULL, src, sizeof dst);
+// 	strlcpy(NULL, src, 0);
+// }

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:46:09 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/19 16:39:43 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/20 11:26:29 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,25 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	return ((unsigned char)*b1 - (unsigned char)*b2);
 }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	char s1[10] = "1234";
+// 	char s2[10] = "1233";
+// 	printf("%d\n", ft_memcmp(NULL, NULL, 0));
+// 	// printf("%d\n", ft_memcmp(NULL, NULL, 1));
+// 	printf("%d\n", ft_memcmp(s1, NULL, 0));
+// 	// printf("%d\n", ft_memcmp(s1, NULL, 1));
+// 	printf("%d\n", ft_memcmp(NULL, s2, 0));
+// 	// printf("%d\n", ft_memcmp(NULL, s2, 1));
+
+// 	printf("%d\n", memcmp(NULL, NULL, 0));
+// 	// printf("%d\n", memcmp(NULL, NULL, 1));
+// 	printf("%d\n", memcmp(s1, NULL, 0));
+// 	// printf("%d\n", memcmp(s1, NULL, 1));
+// 	printf("%d\n", memcmp(NULL, s2, 0));
+// 	// printf("%d\n", memcmp(NULL, s2, 1));
+// }
