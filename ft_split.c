@@ -6,12 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:19 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/21 01:29:15 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 01:52:59by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	get_substr_num(char const *s, char c)
 {
@@ -51,17 +50,20 @@ static char	**ft_split_helper(char **result, char const *s, char c)
 	size_t	len;
 
 	tmp = result;
-	while (s != NULL && *s != '\0')
+	len = 0;
+	while (*s != '\0')
 	{
-		while (*s == c)
+		while (*s != '\0' && *s == c)
 			s++;
-		if (*s == '\0')
-			break ;
-		len = ft_strchr(s, c) - s;
-		*tmp = ft_substr(s, 0, len);
-		if (*tmp == NULL)
-			return (free_all(result, (tmp - result) / sizeof(char *)));
-		s += len;
+		if (*s != '\0')
+		{
+			len = ft_strchr(s, c) - s;
+			*tmp = ft_substr(s, 0, len);
+			if (*tmp == NULL)
+				return (free_all(result, (tmp - result) / sizeof(char *)));
+		}
+		while (*s != '\0' && *s != c)
+			s++;
 		tmp++;
 	}
 	return (result);
@@ -79,13 +81,15 @@ char	**ft_split(char const *s, char c)
 	return (ft_split_helper(result, s, c));
 }
 
-int	main(void)
-{
-	char s[] = "123444323234s";
-	char **res = ft_split(s, ' ');
-	while(*res != NULL)
-	{
-		printf("%s\n", *res++);
-	}
-	return (0);
-}
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	char s[] = "   123444323         234s              ";
+// 	char **res = ft_split(s, ' ');
+// 	while(*res != NULL)
+// 	{
+// 		printf("%s\n", *res++);
+// 	}
+// 	return (0);
+// }
