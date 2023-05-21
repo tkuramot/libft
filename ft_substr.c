@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:54:05 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/21 04:57:59 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:27:20 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	s_len;
 	char	*ret;
-	char	*tmp;
 
 	if (s == NULL)
 		return (NULL);
@@ -28,14 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ret = (char *)malloc(sizeof(char) * (len + 1));
 	if (ret == NULL)
 		return (NULL);
-	tmp = ret;
 	s += start;
-	while (len > 0)
-	{
-		*tmp++ = *s++;
-		len--;
-	}
-	*tmp = '\0';
+	ft_strlcpy(ret, s, len + 1);
 	return (ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 10:06:37 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/21 05:28:10 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:17:38 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*node;
-
 	if (lst == NULL || f == NULL)
 		return ;
-	node = lst;
-	while (node != NULL)
+	while (lst != NULL)
 	{
-		f(node->content);
-		node = node->next;
+		f(lst->content);
+		lst = lst->next;
 	}
 }
 

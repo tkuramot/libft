@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:16:41 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/21 04:42:00 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:20:40 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ static void	ft_putnbr_fd_helper(int n, int fd, int is_negative)
 		c = -(n % 10) + '0';
 	else
 		c = (n % 10) + '0';
-	if ((!is_negative && n < 10) || (is_negative && n > -10))
+	if (!(!is_negative && n < 10) && !(is_negative && n > -10))
 	{
-		write(fd, &c, 1);
-		return ;
+		ft_putnbr_fd_helper(n / 10, fd, is_negative);
 	}
-	ft_putnbr_fd_helper(n / 10, fd, is_negative);
 	write(fd, &c, 1);
 }
 

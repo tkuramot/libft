@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:01:45 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:42:41 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:19:45 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	const unsigned char	*s;
 
 	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
+	s = (const unsigned char *)src;
 	if (dst <= src)
 	{
 		ft_memcpy(dst, src, len);

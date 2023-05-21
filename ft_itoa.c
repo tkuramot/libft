@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:33:59 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/21 04:37:01 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:30:47 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ char	*ft_itoa(int n)
 	int		is_negative;
 
 	is_negative = (n < 0);
-	len = get_number_of_digits(n) + is_negative;
-	ret = (char *)malloc(sizeof(char) * (len + 1));
+	len = get_number_of_digits(n);
+	ret = (char *)malloc(sizeof(char) * (len + is_negative + 1));
 	if (ret == NULL)
 		return (NULL);
-	tmp = ret + len;
+	tmp = ret + len + is_negative;
 	*tmp-- = '\0';
 	while (len-- > 0)
 	{
@@ -50,7 +50,7 @@ char	*ft_itoa(int n)
 		n /= 10;
 	}
 	if (is_negative)
-		*(tmp + 1) = '-';
+		*tmp = '-';
 	return (ret);
 }
 

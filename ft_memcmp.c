@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:46:09 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/20 18:42:24 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/21 19:18:48 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	if (n == 0)
 		return (0);
-	return ((unsigned char)*b1 - (unsigned char)*b2);
+	return (*b1 - *b2);
 }
 
 // #include <stdio.h>
