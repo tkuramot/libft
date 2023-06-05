@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:18:55 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:53:19 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,8 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-# if !BUFFER_SIZE || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX - 1
-#  undef BUFFER_SIZE
-#  define BUFFER_SIZE 4096
-# endif
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct s_list
 {
@@ -73,10 +70,5 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-char				*get_next_line(int fd);
-size_t				find_chr(char *s, char c);
-size_t				ft_strlen_s(const char *s);
-char				*ft_strnjoin(char const *s1, char const *s2, size_t n1,
-						size_t n2);
 
 #endif

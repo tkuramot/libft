@@ -6,11 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 18:12:21 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:20:11 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/28 23:13:16 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 static char	*read_new_line(int fd, char *line, char **rest);
 static int	concat_line(char **line, char *buffer, char **rest);

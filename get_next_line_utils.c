@@ -6,11 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:46:36 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:20:26 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/28 23:08:21 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 size_t	find_chr(char *s, char c)
 {
@@ -50,6 +50,23 @@ char	*ft_strnjoin(char const *s1, char const *s2, size_t n1, size_t n2)
 		*tmp++ = *s1++;
 	while (n2--)
 		*tmp++ = *s2++;
+	*tmp = '\0';
+	return (ret);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*ret;
+	char	*tmp;
+	size_t	len;
+
+	len = ft_strlen_s(s1);
+	ret = (char *)malloc(sizeof(char) * (len + 1));
+	if (ret == NULL)
+		return (NULL);
+	tmp = ret;
+	while (*s1)
+		*tmp++ = *s1++;
 	*tmp = '\0';
 	return (ret);
 }
