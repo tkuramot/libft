@@ -54,19 +54,3 @@ char	*ft_strnjoin(char const *s1, char const *s2, size_t n1, size_t n2)
 	return (ret);
 }
 
-char	*ft_strdup(const char *s1)
-{
-	char	*ret;
-	char	*tmp;
-	size_t	len;
-
-	len = ft_strlen_s(s1);
-	ret = (char *)malloc(sizeof(char) * (len + 1));
-	if (ret == NULL)
-		return (NULL);
-	tmp = ret;
-	while (*s1)
-		*tmp++ = *s1++;
-	*tmp = '\0';
-	return (ret);
-}
