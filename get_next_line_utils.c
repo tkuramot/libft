@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:46:36 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:08:21 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:08:31 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ char	*ft_strnjoin(char const *s1, char const *s2, size_t n1, size_t n2)
 	*tmp = '\0';
 	return (ret);
 }
-
