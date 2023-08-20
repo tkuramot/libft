@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 18:12:21 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:13:16 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/27 18:11:56 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/28 23:11:51 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "libft.h"
+#include "get_next_line_bonus.h"
 
 static char	*read_new_line(int fd, char *line, char **rest);
 static int	concat_line(char **line, char *buffer, char **rest);
@@ -94,16 +93,21 @@ static int	concat_line(char **line, char *buffer, char **rest)
 
 // int	main(void)
 // {
-// 	int		fd;
+// 	int		fd1;
+// 	int		fd2;
 // 	int		n;
 // 	char	*s;
 
-// 	fd = open("sample0.txt", O_RDONLY);
+// 	fd1 = open("sample1.txt", O_RDONLY);
+// 	fd2 = open("sample.txt", O_RDONLY);
 // 	n = 20;
 // 	for (int i = 0; i < n; i++)
 // 	{
-// 		printf("============%d\n", i);
-// 		s = get_next_line(2);
+// 		// printf("============%d\n", i);
+// 		s = get_next_line(fd1);
+// 		printf("%s", s);
+// 		free(s);
+// 		s = get_next_line(fd2);
 // 		printf("%s", s);
 // 		free(s);
 // 	}

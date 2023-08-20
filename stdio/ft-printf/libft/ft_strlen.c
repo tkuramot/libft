@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/20 16:56:23 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/16 17:02:56 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/20 18:44:37 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include "ft_ctype.h"
-# include "ft_list.h"
-# include "ft_stdio.h"
-# include "ft_stdlib.h"
-# include "ft_string.h"
-# include "ft_strings.h"
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
 
-#endif
+	len = 0;
+	while (*s++ != '\0')
+		len++;
+	return (len);
+}
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	// ft_strlen(NULL);
+
+// 	strlen(NULL);
+// }

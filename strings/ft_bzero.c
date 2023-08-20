@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/20 16:56:23 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/16 17:25:45 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/20 16:53:19 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_string.h"
 
-# include "ft_ctype.h"
-# include "ft_list.h"
-# include "ft_stdio.h"
-# include "ft_stdlib.h"
-# include "ft_string.h"
-# include "ft_strings.h"
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}
 
-#endif
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	// ft_bzero(NULL, 0);
+// 	ft_bzero(NULL, 1);
+// 	// bzero(NULL, 0);
+// 	bzero(NULL, 1);
+// }

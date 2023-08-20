@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/20 16:56:23 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/16 21:38:19 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/20 18:45:03 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include "ft_ctype.h"
-# include "ft_list.h"
-# include "ft_stdio.h"
-# include "ft_stdlib.h"
-# include "ft_string.h"
-# include "ft_strings.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	char	*found;
+	char	*p;
 
-#endif
+	if (c == '\0')
+		return (ft_strchr(s, '\0'));
+	found = NULL;
+	p = ft_strchr(s, c);
+	while (p != NULL)
+	{
+		found = p;
+		s = p + 1;
+		p = ft_strchr(s, c);
+	}
+	return (found);
+}
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	// ft_strrchr(NULL, 'a');
+// 	strrchr(NULL, 'a');
+// 	return 0;
+// }

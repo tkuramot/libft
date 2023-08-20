@@ -6,11 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:46:36 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/24 14:08:31 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/28 23:20:26 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 size_t	find_chr(char *s, char c)
 {

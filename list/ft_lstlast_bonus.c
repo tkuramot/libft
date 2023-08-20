@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/20 16:56:23 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/19 01:17:25 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/20 16:48:05 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_list.h"
 
-# include "ft_ctype.h"
-# include "ft_list.h"
-# include "ft_stdio.h"
-# include "ft_stdlib.h"
-# include "ft_string.h"
-# include "ft_strings.h"
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (lst == NULL)
+		return (NULL);
+	while (lst != NULL && lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
 
-#endif
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	t_list *lst = ft_lstnew("aa");
+// 	ft_lstadd_back(&lst, ft_lstnew("bb"));
+// 	printf("%s\n", ft_lstlast(lst)->content);
+// }

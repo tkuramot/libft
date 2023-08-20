@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/05 17:55:03 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:19:19 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define DECIMAL "0123456789"
 # define FLAGS "-0# +"
 
-# include "libft.h"
+# include "./libft/libft.h"
 # include <stdarg.h>
 # include <stdbool.h>
 
