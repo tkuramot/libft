@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/03 22:09:46 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:38:34 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/23 18:38:36 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
 static const char	*parse_number(const char *fmt, t_placeholder *ph, char type)
 {
@@ -30,29 +30,29 @@ static const char	*parse_number(const char *fmt, t_placeholder *ph, char type)
 	return (fmt);
 }
 
-static int	ft_vprintf(va_list *ap, t_placeholder ph)
+static int	ft_vprintf(int fd, va_list *ap, t_placeholder ph)
 {
 	size_t	l;
 
 	l = 0;
 	if (ph.type == CHAR)
-		l += ft_printf_char((char)va_arg(*ap, int), ph);
+		l += ft_dprintf_char(fd, (char)va_arg(*ap, int), ph);
 	else if (ph.type == STR)
-		l += ft_printf_str(va_arg(*ap, char *), ph);
+		l += ft_dprintf_str(fd, va_arg(*ap, char *), ph);
 	else if (ph.type == PTR)
-		l += ft_printf_ptr(va_arg(*ap, unsigned long long), ph);
+		l += ft_dprintf_ptr(fd, va_arg(*ap, unsigned long long), ph);
 	else if (ph.type == DEC)
-		l += ft_printf_int(va_arg(*ap, int), ph);
+		l += ft_dprintf_int(fd, va_arg(*ap, int), ph);
 	else if (ph.type == INT)
-		l += ft_printf_int(va_arg(*ap, int), ph);
+		l += ft_dprintf_int(fd, va_arg(*ap, int), ph);
 	else if (ph.type == U_DEC)
-		l += ft_printf_uint(va_arg(*ap, unsigned int), ph);
+		l += ft_dprintf_uint(fd, va_arg(*ap, unsigned int), ph);
 	else if (ph.type == HEX_L)
-		l += ft_printf_lower_hex(va_arg(*ap, unsigned int), ph);
+		l += ft_dprintf_lower_hex(fd, va_arg(*ap, unsigned int), ph);
 	else if (ph.type == HEX_U)
-		l += ft_printf_upper_hex(va_arg(*ap, unsigned int), ph);
+		l += ft_dprintf_upper_hex(fd, va_arg(*ap, unsigned int), ph);
 	else if (ph.type == PERCENT)
-		l += ft_printf_percent(ph);
+		l += ft_dprintf_percent(fd, ph);
 	return (l);
 }
 
@@ -105,7 +105,7 @@ static const char	*parse_placeholder(const char *fmt, t_placeholder *ph)
 	return (++fmt);
 }
 
-int	ft_printf(const char *fmt, ...)
+int	ft_dprintf(int fd, const char *fmt, ...)
 {
 	va_list			ap;
 	size_t			l;
@@ -125,10 +125,10 @@ int	ft_printf(const char *fmt, ...)
 			ph.type = -1;
 			ph.padding = ' ';
 			fmt = parse_placeholder(++fmt, &ph);
-			l += ft_vprintf(&ap, ph);
+			l += ft_vprintf(fd, &ap, ph);
 		}
 		else
-			l += ft_putchar_r(*fmt++);
+			l += ft_dprintf_putchar(*fmt++, fd);
 	}
 	va_end(ap);
 	return (l);

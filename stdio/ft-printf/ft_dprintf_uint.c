@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_uint.c                                   :+:      :+:    :+:   */
+/*   ft_dprintf_uint.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 17:37:00 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/07/29 09:45:52 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:39:11 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/23 18:39:13 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
 static void	get_output_length(long long digit, t_placeholder *ph)
 {
@@ -31,7 +31,7 @@ static void	adjust_padding(long long nbr, t_placeholder *ph)
 	}
 }
 
-size_t	ft_printf_uint(unsigned long long nbr, t_placeholder ph)
+size_t	ft_dprintf_uint(int fd, unsigned long long nbr, t_placeholder ph)
 {
 	size_t		l;
 	long long	digit;
@@ -41,16 +41,16 @@ size_t	ft_printf_uint(unsigned long long nbr, t_placeholder ph)
 	get_output_length(digit, &ph);
 	adjust_padding(nbr, &ph);
 	if (!(ph.flags & HYPHEN) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len);
+		l += ft_putchar_n(ph.padding, ph.width - ph.len, fd);
 	if (digit < ph.precision)
-		l += ft_putchar_n('0', ph.precision - digit);
+		l += ft_putchar_n('0', ph.precision - digit, fd);
 	if (!nbr && !ph.precision && ph.width != -1)
-		l += ft_putchar_r(' ');
+		l += ft_dprintf_putchar(' ', fd);
 	else if (!nbr && !ph.precision)
 		l += 0;
 	else
-		l += ft_putnbr_base(nbr, DECIMAL);
+		l += ft_putnbr_base(fd, nbr, DECIMAL);
 	if ((ph.flags & HYPHEN) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len);
+		l += ft_putchar_n(ph.padding, ph.width - ph.len, fd);
 	return (l);
 }

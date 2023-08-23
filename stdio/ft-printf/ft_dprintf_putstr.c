@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnstr_r.c                                     :+:      :+:    :+:   */
+/*   ft_dprintf_putstr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/01 21:59:02 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/03 22:21:11 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:39:30 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/23 18:39:31 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-size_t	ft_putnstr_r(char *s, size_t n)
+size_t	ft_dprintf_putstr(char *s, int fd)
 {
-	size_t	ret;
-
-	ret = n;
-	while (n--)
-		ft_putchar_r(*s++);
-	return (ret);
+	return (write(fd, s, ft_strlen(s)));
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_ptr.c                                :+:      :+:    :+:   */
+/*   ft_dprintf_ptr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 21:51:35 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 17:16:50 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:40:02 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/23 18:40:20 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
-size_t	ft_printf_ptr(unsigned long long ptr, t_placeholder ph)
+size_t	ft_dprintf_ptr(int fd, unsigned long long ptr, t_placeholder ph)
 {
 	size_t	l;
 
 	l = 0;
 	if (!(ph.flags & HYPHEN) && get_digit_count(ptr, 16) + 2 < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(ptr, 16) - 2);
-	l += ft_putstr_r("0x");
-	l += ft_putnbr_base(ptr, HEXADECIMAL_L);
+		l += ft_putchar_n(ph.padding,
+				ph.width - get_digit_count(ptr, 16) - 2, fd);
+	l += ft_dprintf_putstr("0x", fd);
+	l += ft_putnbr_base(fd, ptr, HEXADECIMAL_L);
 	if ((ph.flags & HYPHEN) && get_digit_count(ptr, 16) + 2 < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(ptr, 16) - 2);
+		l += ft_putchar_n(ph.padding,
+				ph.width - get_digit_count(ptr, 16) - 2, fd);
 	return (l);
 }

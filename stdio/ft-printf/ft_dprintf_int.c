@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int.c                                    :+:      :+:    :+:   */
+/*   ft_dprintf_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 17:31:15 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/07/29 09:48:38 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:40:43 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/23 18:40:44 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_dprintf.h"
 
 static bool	ft_abs(long long *nbr)
 {
@@ -22,21 +22,21 @@ static bool	ft_abs(long long *nbr)
 	return (is_neg);
 }
 
-static size_t	print_sign(bool is_neg, t_placeholder ph)
+static size_t	print_sign(int fd, bool is_neg, t_placeholder ph)
 {
 	size_t	l;
 
 	l = 0;
 	if (is_neg)
 	{
-		l += ft_putchar_r('-');
+		l += ft_dprintf_putchar('-', fd);
 	}
 	else
 	{
 		if (ph.flags & PLUS)
-			l += ft_putchar_r('+');
+			l += ft_dprintf_putchar('+', fd);
 		else if (ph.flags & SPACE)
-			l += ft_putchar_r(' ');
+			l += ft_dprintf_putchar(' ', fd);
 	}
 	return (l);
 }
@@ -60,7 +60,7 @@ static void	adjust_padding(long long nbr, t_placeholder *ph)
 	}
 }
 
-size_t	ft_printf_int(long long nbr, t_placeholder ph)
+size_t	ft_dprintf_int(int fd, long long nbr, t_placeholder ph)
 {
 	size_t		l;
 	long long	digit;
@@ -72,19 +72,19 @@ size_t	ft_printf_int(long long nbr, t_placeholder ph)
 	get_output_length(digit, &ph);
 	adjust_padding(nbr, &ph);
 	if (!(ph.flags & HYPHEN) && !(ph.flags & ZERO) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg);
-	l += print_sign(is_neg, ph);
+		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
+	l += print_sign(fd, is_neg, ph);
 	if (!(ph.flags & HYPHEN) && (ph.flags & ZERO) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg);
+		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
 	if (digit < ph.precision)
-		l += ft_putchar_n('0', ph.precision - digit);
+		l += ft_putchar_n('0', ph.precision - digit, fd);
 	if (!nbr && !ph.precision && ph.width != -1)
-		l += ft_putchar_r(' ');
+		l += ft_dprintf_putchar(' ', fd);
 	else if (!nbr && !ph.precision)
 		l += 0;
 	else
-		l += ft_putnbr_base(nbr, DECIMAL);
+		l += ft_putnbr_base(fd, nbr, DECIMAL);
 	if ((ph.flags & HYPHEN) && !(ph.flags & ZERO) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg);
+		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
 	return (l);
 }
