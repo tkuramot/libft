@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdio.h                                         :+:      :+:    :+:   */
+/*   ft_dprintf_char.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 13:26:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/23 18:29:12 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:40:49 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/23 18:40:50 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDIO_H
-# define FT_STDIO_H
+#include "ft_dprintf.h"
 
-# include <unistd.h>
+size_t	ft_dprintf_char(int fd, char c, t_placeholder ph)
+{
+	size_t	l;
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-char	*get_next_line(int fd);
-int		ft_dprintf(int fd, const char *fmt, ...);
-int		ft_printf(const char *fmt, ...);
-
-#endif
+	l = 0;
+	if (!(ph.flags & HYPHEN) && ph.width != -1)
+		l += ft_putchar_n(ph.padding, ph.width - 1, fd);
+	l += ft_dprintf_putchar(c, fd);
+	if ((ph.flags & HYPHEN) && ph.width != -1)
+		l += ft_putchar_n(ph.padding, ph.width - 1, fd);
+	return (l);
+}

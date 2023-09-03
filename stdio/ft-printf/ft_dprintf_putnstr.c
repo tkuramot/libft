@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdio.h                                         :+:      :+:    :+:   */
+/*   ft_dprintf_putnstr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 13:26:56 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/23 18:29:12 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:39:37 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/08/23 18:39:38 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDIO_H
-# define FT_STDIO_H
+#include "ft_dprintf.h"
 
-# include <unistd.h>
+size_t	ft_dprintf_putnstr(char *s, size_t n, int fd)
+{
+	size_t	ret;
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-char	*get_next_line(int fd);
-int		ft_dprintf(int fd, const char *fmt, ...);
-int		ft_printf(const char *fmt, ...);
-
-#endif
+	ret = n;
+	while (n--)
+		ft_dprintf_putchar(*s++, fd);
+	return (ret);
+}
