@@ -3,3 +3,5 @@ venv
 libft-tester-tokyo
 Libftest
 LibftTester
+libft.a
+obj
