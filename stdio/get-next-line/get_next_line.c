@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 static char	*read_new_line(int fd, char *line, char **rest);
 static int	concat_line(char **line, char *buffer, char **rest);
@@ -18,10 +19,10 @@ static int	concat_line(char **line, char *buffer, char **rest);
 char	*get_next_line(int fd)
 {
 	int			flag;
-	static char	*rest[OPEN_MAX];
+	static char	*rest[FOPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || fd >= OPEN_MAX)
+	if (fd < 0 || fd >= FOPEN_MAX)
 		return (NULL);
 	line = (char *)malloc(sizeof(char) * 1);
 	if (!line)

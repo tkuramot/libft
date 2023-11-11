@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdint.h>
 #include "ft_strings.h"
 
 void	*ft_calloc(size_t count, size_t size)
