@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stdlib.h                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 16:05:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/11/12 23:49:43 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/11/12 23:48:45 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/11/12 23:49:22 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STDLIB_H
-# define FT_STDLIB_H
+#include "libft.h"
 
-# include <stddef.h>
-
-int		ft_atoi(const char *str);
-void	*ft_calloc(size_t count, size_t size);
-char	*ft_itoa(int n);
-int		ft_abs(int n);
-
-#endif
+int	ft_abs(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
