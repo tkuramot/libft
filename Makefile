@@ -1,19 +1,85 @@
 NAME = libft.a
 CFLAGS = -g -MMD -MP -Wall -Wextra -Werror
 DFLAGS = -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined -fsanitize=bounds
-INCLUDE = -I include
-SRC = /ctype/ft_isdigit.c /ctype/ft_isascii.c /ctype/ft_isprint.c /ctype/ft_toupper.c /ctype/ft_isalpha.c /ctype/ft_isalnum.c /ctype/ft_tolower.c /strings/ft_bzero.c /stdio/ft_putstr_fd.c /stdio/ft-printf/ft_dprintf_char.c /stdio/ft-printf/ft_dprintf_uint.c /stdio/ft-printf/ft_dprintf.c /stdio/ft-printf/ft_dprintf_putchar.c /stdio/ft-printf/ft_dprintf_str.c /stdio/ft-printf/ft_dprintf_ptr.c /stdio/ft-printf/ft_dprintf_lower_hex.c /stdio/ft-printf/ft_dprintf_percent.c /stdio/ft-printf/ft_dprintf_putstr.c /stdio/ft-printf/ft_dprintf_putnstr.c /stdio/ft-printf/ft_dprintf_int.c /stdio/ft-printf/ft_dprintf_upper_hex.c /stdio/ft-printf/ft_dprintf_utils.c /stdio/ft_putnbr_fd.c /stdio/ft_putendl_fd.c /stdio/get-next-line/get_next_line_bonus.c /stdio/get-next-line/get_next_line_utils.c /stdio/get-next-line/get_next_line.c /stdio/get-next-line/get_next_line_utils_bonus.c /stdio/ft_putchar_fd.c /list/ft_lstpop_front.c /list/ft_lstadd_front_bonus.c /list/ft_lstdelone_bonus.c /list/ft_lstadd_back_bonus.c /list/ft_lstmap_bonus.c /list/ft_lstclear_bonus.c /list/ft_lstpop_back_bonus.c /list/ft_lstiter_bonus.c /list/ft_lstlast_bonus.c /list/ft_lstsize_bonus.c /list/ft_lstnew_bonus.c /stdlib/ft_calloc.c /stdlib/ft_atoi.c /stdlib/ft_itoa.c /string/ft_strnstr.c /string/ft_strlcpy.c /string/ft_strlen.c /string/ft_memcmp.c /string/ft_strchr.c /string/ft_striteri.c /string/ft_strjoin.c /string/ft_memcpy.c /string/ft_split.c /string/ft_strrchr.c /string/ft_memchr.c /string/ft_memset.c /string/ft_substr.c /string/ft_strncmp.c /string/ft_strmapi.c /string/ft_strtrim.c /string/ft_memmove.c /string/ft_chrdup.c /string/ft_strlcat.c /string/ft_strdup.c /string/ft_strcmp.c
+INCLUDE = -I ./include
+SRC = \
+			ft_isdigit.c \
+			ft_atoi.c \
+			ft_bzero.c \
+			ft_calloc.c \
+			ft_chrdup.c \
+			ft_dprintf.c \
+			ft_dprintf_char.c \
+			ft_dprintf_int.c \
+			ft_dprintf_lower_hex.c \
+			ft_dprintf_percent.c \
+			ft_dprintf_ptr.c \
+			ft_dprintf_putchar.c \
+			ft_dprintf_putnstr.c \
+			ft_dprintf_putstr.c \
+			ft_dprintf_str.c \
+			ft_dprintf_uint.c \
+			ft_dprintf_upper_hex.c \
+			ft_dprintf_utils.c \
+			ft_isalnum.c \
+			ft_isalpha.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_itoa.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstmap_bonus.c \
+			ft_lstnew_bonus.c \
+			ft_lstpop_back_bonus.c \
+			ft_lstpop_front.c \
+			ft_lstsize_bonus.c \
+			ft_memchr.c \
+			ft_memcmp.c \
+			ft_memcpy.c \
+			ft_memmove.c \
+			ft_memset.c \
+			ft_putchar_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			ft_putstr_fd.c \
+			ft_split.c \
+			ft_strchr.c \
+			ft_strcmp.c \
+			ft_strdup.c \
+			ft_striteri.c \
+			ft_strjoin.c \
+			ft_strlcat.c \
+			ft_strlcpy.c \
+			ft_strlen.c \
+			ft_strmapi.c \
+			ft_strncmp.c \
+			ft_strnstr.c \
+			ft_strrchr.c \
+			ft_strtrim.c \
+			ft_substr.c \
+			ft_tolower.c \
+			ft_toupper.c \
+			get_next_line.c \
+			get_next_line_bonus.c \
+			get_next_line_utils.c \
+			get_next_line_utils_bonus.c
 OBJDIR = obj
-OBJ = $(addprefix $(OBJDIR), $(SRC:.c=.o))
+OBJ = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 DEPEND = $(OBJ:.o=.d)
+
+vpath %.c ctype strings stdio stdio/ft-printf stdio/get-next-line list stdlib string
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	ar rcs $@ $^
 
 $(OBJDIR)/%.o: %.c
-	@ mkdir -p $(@D)
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(if $(DEBUG),$(DFLAGS),) $(INCLUDE) -c $< -o $@
 
 clean:
@@ -27,9 +93,6 @@ re: fclean all
 debug:
 	make DEBUG=1
 
-cfile:
-	find . -name "*.c" | sed 's/\.//' | tr '\n' ' '
-
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all debug
 
 -include $(DEPEND)
