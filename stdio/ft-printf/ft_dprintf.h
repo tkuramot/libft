@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:37:07 by tkuramot          #+#    #+#             */
-/*   Updated: 2024/07/12 18:25:15 by kura             ###   ########.fr       */
+/*   Updated: 2024/07/12 20:42:41 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,19 @@ typedef struct s_placeholder
 	long long	len;
 }				t_placeholder;
 
+int				ft_printf(const char *fmt, ...);
 int				ft_dprintf(int fd, const char *fmt, ...);
+int				ft_vprintf(int fd, const char *fmt, va_list *ap);
 size_t			fpf_putnbr_base(int fd, unsigned long long nbr, char *base);
 int				fpf_get_digit_count(unsigned long long nbr, size_t base);
 size_t			fpf_dprintf_ptr(int fd, unsigned long long p, t_placeholder ph);
 size_t			fpf_dprintf_int(int fd, long long nbr, t_placeholder ph);
-size_t			fpf_dprintf_lower_hex(int fd,
-					unsigned long long nbr, t_placeholder ph);
-size_t			fpf_dprintf_upper_hex(int fd,
-					unsigned long long nbr, t_placeholder ph);
-size_t			fpf_dprintf_uint(int fd,
-					unsigned long long nbr, t_placeholder ph);
+size_t			fpf_dprintf_lower_hex(int fd, unsigned long long nbr,
+					t_placeholder ph);
+size_t			fpf_dprintf_upper_hex(int fd, unsigned long long nbr,
+					t_placeholder ph);
+size_t			fpf_dprintf_uint(int fd, unsigned long long nbr,
+					t_placeholder ph);
 size_t			fpf_dprintf_percent(int fd, t_placeholder ph);
 size_t			fpf_dprintf_char(int fd, char c, t_placeholder ph);
 size_t			fpf_dprintf_str(int fd, char *s, t_placeholder ph);

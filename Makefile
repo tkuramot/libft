@@ -15,6 +15,7 @@ SRC = \
 			fpf_dprintf_uint.c \
 			fpf_dprintf_upper_hex.c \
 			fpf_dprintf_utils.c \
+			fpf_vprintf.c \
 			ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
@@ -53,6 +54,7 @@ SRC = \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_printf.c \
 			ft_putchar_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \

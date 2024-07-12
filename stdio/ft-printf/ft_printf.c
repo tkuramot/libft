@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dprintf.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kura <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 18:38:34 by tkuramot          #+#    #+#             */
-/*   Updated: 2024/07/12 20:30:30 by kura             ###   ########.fr       */
+/*   Created: 2024/07/12 20:41:24 by kura              #+#    #+#             */
+/*   Updated: 2024/07/12 20:42:22 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dprintf.h"
 
-int	ft_dprintf(int fd, const char *fmt, ...)
+int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
-	int		l;
+	int		ret;
 
-	l = 0;
 	va_start(ap, fmt);
-	l = ft_vprintf(fd, fmt, &ap);
+	ret = ft_vprintf(1, fmt, &ap);
 	va_end(ap);
-	return (l);
+	return (ret);
 }
