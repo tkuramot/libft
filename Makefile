@@ -3,6 +3,18 @@ CFLAGS = -g -MMD -MP -Wall -Wextra -Werror
 DFLAGS = -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined -fsanitize=bounds
 INCLUDE = -I ./include
 SRC = \
+			fpf_dprintf_char.c \
+			fpf_dprintf_int.c \
+			fpf_dprintf_lower_hex.c \
+			fpf_dprintf_percent.c \
+			fpf_dprintf_ptr.c \
+			fpf_dprintf_putchar.c \
+			fpf_dprintf_putnstr.c \
+			fpf_dprintf_putstr.c \
+			fpf_dprintf_str.c \
+			fpf_dprintf_uint.c \
+			fpf_dprintf_upper_hex.c \
+			fpf_dprintf_utils.c \
 			ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
@@ -19,18 +31,6 @@ SRC = \
 			ft_dlstpop_front.c \
 			ft_dlstsize.c \
 			ft_dprintf.c \
-			ft_dprintf_char.c \
-			ft_dprintf_int.c \
-			ft_dprintf_lower_hex.c \
-			ft_dprintf_percent.c \
-			ft_dprintf_ptr.c \
-			ft_dprintf_putchar.c \
-			ft_dprintf_putnstr.c \
-			ft_dprintf_putstr.c \
-			ft_dprintf_str.c \
-			ft_dprintf_uint.c \
-			ft_dprintf_upper_hex.c \
-			ft_dprintf_utils.c \
 			ft_isalnum.c \
 			ft_isalpha.c \
 			ft_isascii.c \
@@ -74,9 +74,7 @@ SRC = \
 			ft_substr.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			get_next_line.c \
 			get_next_line_bonus.c \
-			get_next_line_utils.c \
 			get_next_line_utils_bonus.c
 OBJDIR = obj
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))

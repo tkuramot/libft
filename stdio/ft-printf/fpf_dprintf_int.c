@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:40:43 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/23 18:40:44 by tkuramot         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:25:15 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ static size_t	print_sign(int fd, bool is_neg, t_placeholder ph)
 	l = 0;
 	if (is_neg)
 	{
-		l += ft_dprintf_putchar('-', fd);
+		l += fpf_dprintf_putchar('-', fd);
 	}
 	else
 	{
 		if (ph.flags & PLUS)
-			l += ft_dprintf_putchar('+', fd);
+			l += fpf_dprintf_putchar('+', fd);
 		else if (ph.flags & SPACE)
-			l += ft_dprintf_putchar(' ', fd);
+			l += fpf_dprintf_putchar(' ', fd);
 	}
 	return (l);
 }
@@ -60,7 +60,7 @@ static void	adjust_padding(long long nbr, t_placeholder *ph)
 	}
 }
 
-size_t	ft_dprintf_int(int fd, long long nbr, t_placeholder ph)
+size_t	fpf_dprintf_int(int fd, long long nbr, t_placeholder ph)
 {
 	size_t		l;
 	long long	digit;
@@ -68,23 +68,23 @@ size_t	ft_dprintf_int(int fd, long long nbr, t_placeholder ph)
 
 	l = 0;
 	is_neg = ft_abs(&nbr);
-	digit = get_digit_count(nbr, 10);
+	digit = fpf_get_digit_count(nbr, 10);
 	get_output_length(digit, &ph);
 	adjust_padding(nbr, &ph);
 	if (!(ph.flags & HYPHEN) && !(ph.flags & ZERO) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
+		l += fpf_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
 	l += print_sign(fd, is_neg, ph);
 	if (!(ph.flags & HYPHEN) && (ph.flags & ZERO) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
+		l += fpf_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
 	if (digit < ph.precision)
-		l += ft_putchar_n('0', ph.precision - digit, fd);
+		l += fpf_putchar_n('0', ph.precision - digit, fd);
 	if (!nbr && !ph.precision && ph.width != -1)
-		l += ft_dprintf_putchar(' ', fd);
+		l += fpf_dprintf_putchar(' ', fd);
 	else if (!nbr && !ph.precision)
 		l += 0;
 	else
-		l += ft_putnbr_base(fd, nbr, DECIMAL);
+		l += fpf_putnbr_base(fd, nbr, DECIMAL);
 	if ((ph.flags & HYPHEN) && !(ph.flags & ZERO) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
+		l += fpf_putchar_n(ph.padding, ph.width - ph.len - is_neg, fd);
 	return (l);
 }

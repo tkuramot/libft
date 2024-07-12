@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dprintf_char.c                                  :+:      :+:    :+:   */
+/*   ft_dprintf_putnstr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 18:40:49 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/23 18:40:50 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/08/23 18:39:37 by tkuramot          #+#    #+#             */
+/*   Updated: 2024/07/12 18:25:15 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dprintf.h"
 
-size_t	ft_dprintf_char(int fd, char c, t_placeholder ph)
+size_t	fpf_dprintf_putnstr(char *s, size_t n, int fd)
 {
-	size_t	l;
+	size_t	ret;
 
-	l = 0;
-	if (!(ph.flags & HYPHEN) && ph.width != -1)
-		l += ft_putchar_n(ph.padding, ph.width - 1, fd);
-	l += ft_dprintf_putchar(c, fd);
-	if ((ph.flags & HYPHEN) && ph.width != -1)
-		l += ft_putchar_n(ph.padding, ph.width - 1, fd);
-	return (l);
+	ret = n;
+	while (n--)
+		fpf_dprintf_putchar(*s++, fd);
+	return (ret);
 }

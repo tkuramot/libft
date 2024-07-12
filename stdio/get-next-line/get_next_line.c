@@ -6,15 +6,15 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 18:12:21 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:13:16 by tkuramot         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:18:25 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-static char	*read_new_line(int fd, char *line, char **rest);
-static int	concat_line(char **line, char *buffer, char **rest);
+static char	*gnl_read_new_line(int fd, char *line, char **rest);
+static int	gnl_concat_line(char **line, char *buffer, char **rest);
 
 char	*get_next_line(int fd)
 {
@@ -30,13 +30,13 @@ char	*get_next_line(int fd)
 	*line = '\0';
 	flag = 0;
 	if (rest[fd])
-		flag = concat_line(&line, rest[fd], &rest[fd]);
+		flag = gnl_concat_line(&line, rest[fd], &rest[fd]);
 	if (flag)
 		return (line);
-	return (read_new_line(fd, line, rest));
+	return (gnl_read_new_line(fd, line, rest));
 }
 
-static char	*read_new_line(int fd, char *line, char **rest)
+static char	*gnl_read_new_line(int fd, char *line, char **rest)
 {
 	int		flag;
 	ssize_t	n;
@@ -52,9 +52,9 @@ static char	*read_new_line(int fd, char *line, char **rest)
 		if (n <= 0)
 			break ;
 		buffer[n] = '\0';
-		flag = concat_line(&line, buffer, &rest[fd]);
+		flag = gnl_concat_line(&line, buffer, &rest[fd]);
 	}
-	if ((!ft_strlen_s(line) && !n) || n < 0)
+	if ((!gnl_strlen_s(line) && !n) || n < 0)
 	{
 		free(line);
 		line = NULL;
@@ -63,15 +63,15 @@ static char	*read_new_line(int fd, char *line, char **rest)
 	return (line);
 }
 
-static int	concat_line(char **line, char *buffer, char **rest)
+static int	gnl_concat_line(char **line, char *buffer, char **rest)
 {
 	int		flag;
 	char	*tmp;
 	size_t	n;
 
 	flag = 0;
-	n = find_chr(buffer, '\n');
-	tmp = ft_strnjoin(*line, buffer, ft_strlen_s(*line), n + 1);
+	n = gnl_find_chr(buffer, '\n');
+	tmp = gnl_strnjoin(*line, buffer, gnl_strlen_s(*line), n + 1);
 	if (!tmp)
 		return (1);
 	free(*line);
@@ -80,7 +80,7 @@ static int	concat_line(char **line, char *buffer, char **rest)
 	if (buffer[n] == '\n')
 	{
 		flag = 1;
-		tmp = ft_strdup(buffer + n + 1);
+		tmp = gnl_strdup(buffer + n + 1);
 		if (!tmp)
 			return (1);
 	}

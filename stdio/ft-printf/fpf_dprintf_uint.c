@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:39:11 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/23 18:39:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:25:15 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,26 @@ static void	adjust_padding(long long nbr, t_placeholder *ph)
 	}
 }
 
-size_t	ft_dprintf_uint(int fd, unsigned long long nbr, t_placeholder ph)
+size_t	fpf_dprintf_uint(int fd, unsigned long long nbr, t_placeholder ph)
 {
 	size_t		l;
 	long long	digit;
 
 	l = 0;
-	digit = get_digit_count(nbr, 10);
+	digit = fpf_get_digit_count(nbr, 10);
 	get_output_length(digit, &ph);
 	adjust_padding(nbr, &ph);
 	if (!(ph.flags & HYPHEN) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len, fd);
+		l += fpf_putchar_n(ph.padding, ph.width - ph.len, fd);
 	if (digit < ph.precision)
-		l += ft_putchar_n('0', ph.precision - digit, fd);
+		l += fpf_putchar_n('0', ph.precision - digit, fd);
 	if (!nbr && !ph.precision && ph.width != -1)
-		l += ft_dprintf_putchar(' ', fd);
+		l += fpf_dprintf_putchar(' ', fd);
 	else if (!nbr && !ph.precision)
 		l += 0;
 	else
-		l += ft_putnbr_base(fd, nbr, DECIMAL);
+		l += fpf_putnbr_base(fd, nbr, DECIMAL);
 	if ((ph.flags & HYPHEN) && ph.len < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - ph.len, fd);
+		l += fpf_putchar_n(ph.padding, ph.width - ph.len, fd);
 	return (l);
 }

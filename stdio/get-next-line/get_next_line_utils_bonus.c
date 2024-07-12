@@ -6,13 +6,13 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:46:36 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:08:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:18:51 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-size_t	find_chr(char *s, char c)
+size_t	gnl_find_chr(char *s, char c)
 {
 	size_t	idx;
 
@@ -23,7 +23,7 @@ size_t	find_chr(char *s, char c)
 }
 
 // Nullproof
-size_t	ft_strlen_s(const char *s)
+size_t	gnl_strlen_s(const char *s)
 {
 	size_t	len;
 
@@ -33,7 +33,7 @@ size_t	ft_strlen_s(const char *s)
 	return (len);
 }
 
-char	*ft_strnjoin(char const *s1, char const *s2, size_t n1, size_t n2)
+char	*gnl_strnjoin(char const *s1, char const *s2, size_t n1, size_t n2)
 {
 	size_t	dstsize;
 	char	*ret;
@@ -54,13 +54,13 @@ char	*ft_strnjoin(char const *s1, char const *s2, size_t n1, size_t n2)
 	return (ret);
 }
 
-char	*ft_strdup(const char *s1)
+char	*gnl_strdup(const char *s1)
 {
 	char	*ret;
 	char	*tmp;
 	size_t	len;
 
-	len = ft_strlen_s(s1);
+	len = gnl_strlen_s(s1);
 	ret = (char *)malloc(sizeof(char) * (len + 1));
 	if (ret == NULL)
 		return (NULL);

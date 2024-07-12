@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:37:07 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/23 18:38:24 by tkuramot         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:25:15 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,22 @@ typedef struct s_placeholder
 }				t_placeholder;
 
 int				ft_dprintf(int fd, const char *fmt, ...);
-size_t			ft_putnbr_base(int fd, unsigned long long nbr, char *base);
-int				get_digit_count(unsigned long long nbr, size_t base);
-size_t			ft_dprintf_ptr(int fd, unsigned long long p, t_placeholder ph);
-size_t			ft_dprintf_int(int fd, long long nbr, t_placeholder ph);
-size_t			ft_dprintf_lower_hex(int fd,
+size_t			fpf_putnbr_base(int fd, unsigned long long nbr, char *base);
+int				fpf_get_digit_count(unsigned long long nbr, size_t base);
+size_t			fpf_dprintf_ptr(int fd, unsigned long long p, t_placeholder ph);
+size_t			fpf_dprintf_int(int fd, long long nbr, t_placeholder ph);
+size_t			fpf_dprintf_lower_hex(int fd,
 					unsigned long long nbr, t_placeholder ph);
-size_t			ft_dprintf_upper_hex(int fd,
+size_t			fpf_dprintf_upper_hex(int fd,
 					unsigned long long nbr, t_placeholder ph);
-size_t			ft_dprintf_uint(int fd,
+size_t			fpf_dprintf_uint(int fd,
 					unsigned long long nbr, t_placeholder ph);
-size_t			ft_dprintf_percent(int fd, t_placeholder ph);
-size_t			ft_dprintf_char(int fd, char c, t_placeholder ph);
-size_t			ft_dprintf_str(int fd, char *s, t_placeholder ph);
-size_t			ft_dprintf_putchar(char c, int fd);
-size_t			ft_putchar_n(char c, size_t n, int fd);
-size_t			ft_dprintf_putstr(char *s, int fd);
-size_t			ft_dprintf_putnstr(char *s, size_t n, int fd);
+size_t			fpf_dprintf_percent(int fd, t_placeholder ph);
+size_t			fpf_dprintf_char(int fd, char c, t_placeholder ph);
+size_t			fpf_dprintf_str(int fd, char *s, t_placeholder ph);
+size_t			fpf_dprintf_putchar(char c, int fd);
+size_t			fpf_putchar_n(char c, size_t n, int fd);
+size_t			fpf_dprintf_putstr(char *s, int fd);
+size_t			fpf_dprintf_putnstr(char *s, size_t n, int fd);
 
 #endif

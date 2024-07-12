@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 18:38:34 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/08/23 18:38:36 by tkuramot         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:25:15 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,23 @@ static int	ft_vprintf(int fd, va_list *ap, t_placeholder ph)
 
 	l = 0;
 	if (ph.type == CHAR)
-		l += ft_dprintf_char(fd, (char)va_arg(*ap, int), ph);
+		l += fpf_dprintf_char(fd, (char)va_arg(*ap, int), ph);
 	else if (ph.type == STR)
-		l += ft_dprintf_str(fd, va_arg(*ap, char *), ph);
+		l += fpf_dprintf_str(fd, va_arg(*ap, char *), ph);
 	else if (ph.type == PTR)
-		l += ft_dprintf_ptr(fd, va_arg(*ap, unsigned long long), ph);
+		l += fpf_dprintf_ptr(fd, va_arg(*ap, unsigned long long), ph);
 	else if (ph.type == DEC)
-		l += ft_dprintf_int(fd, va_arg(*ap, int), ph);
+		l += fpf_dprintf_int(fd, va_arg(*ap, int), ph);
 	else if (ph.type == INT)
-		l += ft_dprintf_int(fd, va_arg(*ap, int), ph);
+		l += fpf_dprintf_int(fd, va_arg(*ap, int), ph);
 	else if (ph.type == U_DEC)
-		l += ft_dprintf_uint(fd, va_arg(*ap, unsigned int), ph);
+		l += fpf_dprintf_uint(fd, va_arg(*ap, unsigned int), ph);
 	else if (ph.type == HEX_L)
-		l += ft_dprintf_lower_hex(fd, va_arg(*ap, unsigned int), ph);
+		l += fpf_dprintf_lower_hex(fd, va_arg(*ap, unsigned int), ph);
 	else if (ph.type == HEX_U)
-		l += ft_dprintf_upper_hex(fd, va_arg(*ap, unsigned int), ph);
+		l += fpf_dprintf_upper_hex(fd, va_arg(*ap, unsigned int), ph);
 	else if (ph.type == PERCENT)
-		l += ft_dprintf_percent(fd, ph);
+		l += fpf_dprintf_percent(fd, ph);
 	return (l);
 }
 
@@ -128,7 +128,7 @@ int	ft_dprintf(int fd, const char *fmt, ...)
 			l += ft_vprintf(fd, &ap, ph);
 		}
 		else
-			l += ft_dprintf_putchar(*fmt++, fd);
+			l += fpf_dprintf_putchar(*fmt++, fd);
 	}
 	va_end(ap);
 	return (l);
