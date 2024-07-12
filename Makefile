@@ -3,11 +3,21 @@ CFLAGS = -g -MMD -MP -Wall -Wextra -Werror
 DFLAGS = -fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined -fsanitize=bounds
 INCLUDE = -I ./include
 SRC = \
-			ft_isdigit.c \
 			ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
 			ft_chrdup.c \
+			ft_dlstadd_back.c \
+			ft_dlstadd_front.c \
+			ft_dlstclear.c \
+			ft_dlstdelone.c \
+			ft_dlstiter.c \
+			ft_dlstlast.c \
+			ft_dlstmap.c \
+			ft_dlstnew.c \
+			ft_dlstpop_back.c \
+			ft_dlstpop_front.c \
+			ft_dlstsize.c \
 			ft_dprintf.c \
 			ft_dprintf_char.c \
 			ft_dprintf_int.c \
@@ -24,6 +34,7 @@ SRC = \
 			ft_isalnum.c \
 			ft_isalpha.c \
 			ft_isascii.c \
+			ft_isdigit.c \
 			ft_isprint.c \
 			ft_itoa.c \
 			ft_lstadd_back_bonus.c \
@@ -71,7 +82,7 @@ OBJDIR = obj
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 DEPEND = $(OBJ:.o=.d)
 
-vpath %.c ctype strings stdio stdio/ft-printf stdio/get-next-line list stdlib string
+vpath %.c ctype strings stdio stdio/ft-printf stdio/get-next-line list dlist stdlib string
 
 all: $(NAME)
 

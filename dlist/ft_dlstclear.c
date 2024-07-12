@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_dlstclear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: kura <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2024/07/12 18:00:42 by kura             ###   ########.fr       */
+/*   Created: 2024/07/12 17:48:17 by kura              #+#    #+#             */
+/*   Updated: 2024/07/12 17:49:48 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_dlist.h"
 
-# include "ft_ctype.h"
-# include "ft_list.h"
-# include "ft_dlist.h"
-# include "ft_stdio.h"
-# include "ft_stdlib.h"
-# include "ft_string.h"
-# include "ft_strings.h"
+void	ft_dlstclear(t_dlist **lst, void (*del)(void *))
+{
+	t_dlist	*temp;
 
-#endif
+	if (!lst || !del)
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		ft_dlstdelone(*lst, del);
+		*lst = temp;
+	}
+}

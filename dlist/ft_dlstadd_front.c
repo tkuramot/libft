@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_dlstadd_front.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: kura <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2024/07/12 18:00:42 by kura             ###   ########.fr       */
+/*   Created: 2024/07/12 00:15:02 by kura              #+#    #+#             */
+/*   Updated: 2024/07/12 00:32:30 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_dlist.h"
 
-# include "ft_ctype.h"
-# include "ft_list.h"
-# include "ft_dlist.h"
-# include "ft_stdio.h"
-# include "ft_stdlib.h"
-# include "ft_string.h"
-# include "ft_strings.h"
-
-#endif
+void	ft_dlstadd_front(t_dlist **lst, t_dlist *node)
+{
+	if (!lst || !node)
+		return ;
+	if (*lst)
+	{
+		node->next = *lst;
+		(*lst)->prev = node;
+	}
+	*lst = node;
+}
