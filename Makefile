@@ -37,6 +37,7 @@ SRC = \
 			ft_isascii.c \
 			ft_isdigit.c \
 			ft_isprint.c \
+			ft_isspace.c \
 			ft_itoa.c \
 			ft_lstadd_back_bonus.c \
 			ft_lstadd_front_bonus.c \
@@ -72,6 +73,7 @@ SRC = \
 			ft_strncmp.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
+			ft_strtol.c \
 			ft_strtrim.c \
 			ft_substr.c \
 			ft_tolower.c \
