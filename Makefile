@@ -24,12 +24,14 @@ SRC = \
 			ft_dlstadd_front.c \
 			ft_dlstclear.c \
 			ft_dlstdelone.c \
+			ft_dlstfind.c \
 			ft_dlstiter.c \
 			ft_dlstlast.c \
 			ft_dlstmap.c \
 			ft_dlstnew.c \
 			ft_dlstpop_back.c \
 			ft_dlstpop_front.c \
+			ft_dlstpop_middle.c \
 			ft_dlstsize.c \
 			ft_dprintf.c \
 			ft_isalnum.c \
