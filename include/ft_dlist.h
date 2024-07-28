@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 02:38:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2024/07/26 01:28:59 by kura             ###   ########.fr       */
+/*   Updated: 2024/07/28 23:23:19 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void				ft_dlstadd_back(t_dlist **lst, t_dlist *node);
 t_dlist				*ft_dlstfind(t_dlist *list, void *expected,
 						int (*find)(void *actual, void *expected));
 t_dlist				*ft_dlstpop_front(t_dlist **lst);
-t_dlist				*ft_dlstpop_middle(t_dlist *lst);
+t_dlist				*ft_dlstpop_middle(t_dlist **lst);
 t_dlist				*ft_dlstpop_back(t_dlist **lst);
 void				ft_dlstdelone(t_dlist *lst, void (*del)(void *));
 void				ft_dlstclear(t_dlist **lst, void (*del)(void *));

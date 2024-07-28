@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlstpop.c                                       :+:      :+:    :+:   */
+/*   ft_dlstpop_middle.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kura <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 00:48:23 by kura              #+#    #+#             */
-/*   Updated: 2024/07/26 00:59:51 by kura             ###   ########.fr       */
+/*   Updated: 2024/07/28 23:25:22 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dlist.h"
 
-t_dlist	*ft_dlstpop_middle(t_dlist *lst)
+t_dlist	*ft_dlstpop_middle(t_dlist **lst)
 {
-	t_dlist	*node;
+	t_dlist	*cur;
+	t_dlist	*next;
 
-	if (!lst)
+	if (!lst || !*lst)
 		return (NULL);
-	node = lst;
-	if (node->prev)
-		node->prev->next = node->next;
-	if (node->next)
-		node->next->prev = node->prev;
-	node->prev = NULL;
-	node->next = NULL;
-	return (node);
+	cur = *lst;
+	next = cur->next;
+	if (next)
+	{
+		next->prev = cur->prev;
+		cur->prev->next = next;
+	}
+	*lst = next;
+	cur->next = NULL;
+	cur->prev = NULL;
+	return (cur);
 }
