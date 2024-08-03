@@ -6,7 +6,7 @@
 /*   By: kura <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 00:48:23 by kura              #+#    #+#             */
-/*   Updated: 2024/07/28 23:25:22 by kura             ###   ########.fr       */
+/*   Updated: 2024/08/03 16:16:46 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ t_dlist	*ft_dlstpop_middle(t_dlist **lst)
 	{
 		next->prev = cur->prev;
 		cur->prev->next = next;
+		*lst = next;
 	}
-	*lst = next;
+	else
+		*lst = cur->prev;
 	cur->next = NULL;
 	cur->prev = NULL;
 	return (cur);
