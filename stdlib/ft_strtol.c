@@ -6,7 +6,7 @@
 /*   By: kura <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 22:05:13 by kura              #+#    #+#             */
-/*   Updated: 2024/07/17 22:05:15 by kura             ###   ########.fr       */
+/*   Updated: 2024/08/20 23:58:35 by kura             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,69 +15,93 @@
 #include <limits.h>
 #include <stdbool.h>
 
-static int	check_sign(char *str, int *i)
+static long	check_sign(char **str)
 {
-	int	sign;
+	long	sign;
 
 	sign = 1;
-	while (ft_isspace(str[*i]))
-		(*i)++;
-	if (str[*i] == '-')
+	if (**str == '-' || **str == '+')
 	{
-		sign *= -1;
-		(*i)++;
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
 	}
-	else if (str[*i] == '+')
-		(*i)++;
 	return (sign);
 }
 
-static bool	check_overflow(long current, int base, int next)
+static int	determine_base(char **str, int base)
 {
-	long	div;
-	long	mod;
-
-	div = LONG_MAX / base;
-	mod = LONG_MAX % base;
-	if (current > div || (current == div && next > mod))
+	if (base == 0)
 	{
-		errno = ERANGE;
-		return (true);
+		if (**str == '0')
+		{
+			if (*(*str + 1) == 'x' || *(*str + 1) == 'X')
+			{
+				base = 16;
+				*str += 2;
+			}
+			else
+			{
+				base = 8;
+				(*str)++;
+			}
+		}
+		else
+			base = 10;
 	}
-	div = LONG_MIN / base;
-	mod = -(LONG_MIN % base);
-	if (current < div || (current == div && next > mod))
+	else if (base == 16 && **str == '0' && (*(*str + 1) == 'x' || *(*str
+				+ 1) == 'X'))
 	{
-		errno = ERANGE;
-		return (true);
+		*str += 2;
 	}
-	return (false);
+	return (base);
 }
 
-long	ft_strtol(char *str, char *endptr, int base)
+static long	char_to_digit(char c)
 {
-	int		sign;
-	long	nb;
-	int		i;
+	if (c >= '0' && c <= '9')
+		return (c - '0');
+	else if (c >= 'a' && c <= 'z')
+		return (c - 'a' + 10);
+	else if (c >= 'A' && c <= 'Z')
+		return (c - 'A' + 10);
+	return (-1);
+}
 
-	sign = 1;
-	nb = 0;
-	i = 0;
-	sign = check_sign(str, &i);
-	while (ft_isdigit(str[i]))
+static long	add_digit_to_result(long result, long digit, int base, long sign)
+{
+	if (result > (LONG_MAX - digit) / base)
 	{
-		if (check_overflow(nb * sign, base, str[i] - '0'))
-		{
-			if (sign == 1)
-				nb = LONG_MAX;
-			else
-				nb = LONG_MIN;
+		errno = ERANGE;
+		if (sign == 1)
+			return (LONG_MAX);
+		else
+			return (LONG_MIN);
+	}
+	return (result * base + digit);
+}
+
+long	ft_strtol(char *str, char **endptr, int base)
+{
+	long	result;
+	long	sign;
+	long	digit;
+
+	result = 0;
+	while (ft_isspace(*str))
+		str++;
+	sign = check_sign(&str);
+	base = determine_base(&str, base);
+	while (ft_isdigit(*str) || (*str >= 'a' && *str <= 'z') || (*str >= 'A'
+			&& *str <= 'Z'))
+	{
+		digit = char_to_digit(*str);
+		if (digit < 0 || digit >= base)
 			break ;
-		}
-		nb = (nb * base) + (str[i] - '0');
-		i++;
+		result = add_digit_to_result(result, digit, base, sign);
+		str++;
 	}
 	if (endptr)
-		*endptr = str[i];
-	return (nb * sign);
+		*endptr = (char *)str;
+	return (result * sign);
 }
